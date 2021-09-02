@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace Computers
 {
     public class AddGroupVM : BaseNotify
     {
-        List<Group> Groups { get; set; }
+        public ObservableCollection<Group> Groups { get; set; }
         public int IDGroup { get; set; }
         public int NumberGroup { get; set; }
         public List<Computer> Computers { get; set; }
@@ -17,9 +18,8 @@ namespace Computers
         {
             Group group = new Group
             {
-                ID = 1,
-                Number = 20,
-                Computers = new List<Computer>()
+                ID = id,
+                Number = number
             };
             Groups.Add(group);
         }
@@ -28,6 +28,8 @@ namespace Computers
 
         public AddGroupVM(MainViewModel mainVM)
         {
+            Groups = new ObservableCollection<Group>();
+            OnPropertyChanged("Groups");
             SaveGroup = new RelayCommand(() =>
             {
                 AddGroup(IDGroup, NumberGroup);
