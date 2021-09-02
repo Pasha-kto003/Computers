@@ -10,6 +10,23 @@
       Title="AddGroupView">
 
     <Grid>
-       
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Width="400">
+                <TextBlock Text="Введите ID" Width="250"/>
+                <TextBox Text="{Binding IDGroup}" Width="250"/>
+                <TextBlock Text="Введите номер группы" Width="250"/>
+                <TextBox Text="{Binding NumberGroup}" Width="250"/>
+            </StackPanel>
+        </Grid>
+        <Button Content="Сохранить" Grid.Row="1" Width="250" Command="{Binding SaveGroup}"/>
     </Grid>
 </Page>

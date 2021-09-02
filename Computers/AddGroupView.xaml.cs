@@ -20,9 +20,10 @@ namespace Computers
     /// </summary>
     public partial class AddGroupView : Page
     {
-        public AddGroupView()
+        public AddGroupView(MainViewModel mainVM)
         {
             InitializeComponent();
+            DataContext = new AddGroupVM(mainVM);
         }
     }
 }
