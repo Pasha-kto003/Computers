@@ -13,15 +13,23 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition/>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <DataGrid x:Name="GroupsDataGrid" ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedGroup}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID компьютера"/>
-                    <DataGridTextColumn Header=""/>
+                    <DataGridTextColumn Header="ID группы" Binding="{Binding IDGroup}"/>
+                    <DataGridTextColumn Header="Номер группы" Binding="{Binding GroupNumber}"/>
                 </DataGrid.Columns>
             </DataGrid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Добавить группу" Command="{Binding AddGroup}"/>
+            <Button Grid.Column="1" Content="Изменить группу" Command="{Binding EditGroup}"/>
         </Grid>
     </Grid>
 </Page>
